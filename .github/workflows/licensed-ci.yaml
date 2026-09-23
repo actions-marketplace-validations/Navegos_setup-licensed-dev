@@ -42,7 +42,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     # run licensed-ci to check and update licenses
-    - uses: licensee/licensed-ci@98eef7c23bcf8211e108781a9594e969da913e89
+    - uses: licensee/licensed-ci@f1f6507544a9db25b0f4730230bfdf67a9c1bc90
       with:
         workflow: push_for_bots
         dependabot_skip: 'true'
