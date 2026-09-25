@@ -204,13 +204,17 @@ describe('install', () => {
   const installDir = path.join(__dirname, 'install_dir');
   const version = '2.3.2';
   const release = releases.find(r => r.tag_name === version);
-  const asset = release.assets.find(a => a.name.includes(os.platform()));
+  const platform = os.platform() === 'win32' ? 'linux' : os.platform();
+  const asset = release.assets.find(a => a.name.includes(platform));
 
   const processEnv = process.env;
   let archivePath;
 
   beforeEach(() => {
     archivePath = path.join('testTmpDir', 'licensed.tar.gz');
+    if (os.platform() === 'win32') {
+      sinon.stub(os, 'platform').returns('linux');
+    }
     sinon.stub(core, 'setFailed');
     sinon.stub(core, 'addPath');
     sinon.stub(core, 'info');

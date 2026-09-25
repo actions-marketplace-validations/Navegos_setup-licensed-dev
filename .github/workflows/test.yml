@@ -11,7 +11,7 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v7
-    - uses: actions/setup-node@v7
+    - uses: actions/setup-node@v4
       with:
         cache: npm
         node-version: 24.x

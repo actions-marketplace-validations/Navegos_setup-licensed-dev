@@ -12,7 +12,11 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-export default [...compat.extends("eslint:recommended"), {
+export default [
+    {
+        ignores: ["dist/**", "coverage/**", "node_modules/**"]
+    },
+    ...compat.extends("eslint:recommended"), {
     languageOptions: {
         globals: {
             ...globals.commonjs,
@@ -22,7 +26,7 @@ export default [...compat.extends("eslint:recommended"), {
             SharedArrayBuffer: "readonly",
         },
 
-        ecmaVersion: 2018,
+        ecmaVersion: 'latest',
         sourceType: "commonjs",
     },
 

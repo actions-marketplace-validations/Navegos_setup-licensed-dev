@@ -1,4 +1,4 @@
-# setup-licensed
+# setup-licensed-dev
 
 A GitHub Action to set up [licensee/licensed](https://github.com/licensee/licensed) for use in action workflows, at the specified `version` input and target platform.  The action will fail if licensed isn't available for the specified version and target platform.
 
@@ -22,18 +22,18 @@ list dependencies:
 
 ```yaml
 steps:
-- uses: actions/checkout@v3
+- uses: actions/checkout@v4
 
 # setup application environment
-- uses: actions/setup-node@v3
+- uses: actions/setup-node@v4
 - run: npm install # install dependencies in local environment
 
-# setup ruby environment before running licensee/setup-licensed-dev
+# setup ruby environment before running Navegos/setup-licensed-dev
 - uses: ruby/setup-ruby@v1
   with:
     ruby-version: ruby
 
-- uses: licensee/setup-licensed-dev@v1
+- uses: Navegos/setup-licensed-dev@v1
   with:
     version: '4.x' # required: supports matching based on string equivalence or node-semver range
     install-dir: /path/to/install/at # optional: defaults to /usr/local/bin

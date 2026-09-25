@@ -1,5 +1,6 @@
 name: 'setup-licensed-dev'
 description: 'setup-licensed-dev for use in GitHub Actions workflows'
+author: 'Navegos'
 branding:
   icon: check
   color: green
